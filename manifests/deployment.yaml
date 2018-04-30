@@ -1,0 +1,34 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ta
+  labels:
+    app: ta
+spec:
+  ports:
+    - port: 9080
+  selector:
+    app: ta
+  type: NodePort
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: ta
+  name: ta
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ta
+    spec:
+      containers:
+      - image: mycluster.icp:8500/default/ta:latest
+        name: ta
+        ports:
+        - containerPort: 9080
+          protocol: TCP

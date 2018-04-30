@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><server>
+    <featureManager>
+        <feature>jsp-2.3</feature>
+        <feature>servlet-3.1</feature>
+        <feature>jdbc-4.1</feature>
+    </featureManager>
+    <httpEndpoint host="*" httpPort="9080" httpsPort="9443"/>
+    <authData id="ioaCPINode05/mysql" password="???" user="SA"/>
+    <jdbcDriver id="Microsoft_SQL_Server_JDBC_Driver" javax.sql.DataSource="com.microsoft.sqlserver.jdbc.SQLServerConnectionPoolDataSource">
+        <library>
+            <!-- <file name="/root/sql_driver/sqljdbc_6.0/enu/jre8/sqljdbc42.jar"/> -->
+            <file name="/config/lib/sqljdbc42.jar"/>
+        </library>
+    </jdbcDriver>
+    <dataSource containerAuthDataRef="ioaCPINode05/mysql" id="Microsoft SQL Server JDBC Driver - DataSource" jdbcDriverRef="Microsoft_SQL_Server_JDBC_Driver" jndiName="jms/mqsql">
+        <properties.microsoft.sqlserver beginTranForResultSetScrollingAPIs="false" beginTranForVendorAPIs="false" connectionSharing="1" databaseName="MYDB" enableMultithreadedAccessDetection="false" errorDetectionModel="ExceptionMapping" freeResourcesOnClose="false" jmsOnePhaseOptimization="false" name="Microsoft SQL Server JDBC Driver - DataSource" nonTransactionalDataSource="false" portNumber="1401" preTestSQLString="SELECT 1" reauthentication="false" serverName="9.161.100.223" trustStorePassword="{xor}" validateNewConnection="false" validateNewConnectionRetryCount="100" validateNewConnectionRetryInterval="3"/>
+        <connectionManager agedTimeout="0" connectionTimeout="180" maxIdleTime="1800" maxPoolSize="10" minPoolSize="0" reapTime="180"/>
+    </dataSource>
+    <variable name="MICROSOFT_JDBC_DRIVER_NATIVEPATH" value=""/>
+    <variable name="DERBY_JDBC_DRIVER_PATH" value="${WAS_INSTALL_ROOT}/derby/lib"/>
+</server>
