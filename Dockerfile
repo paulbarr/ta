@@ -11,5 +11,5 @@ COPY ./binary/application/* /config/dropins
 RUN /opt/ibm/wlp/bin/installUtility install  --acceptLicense \
 	jsp-2.3 \
 	servlet-3.1 \
-	jdbc-4.2 
+	jdbc-4.1 
 
